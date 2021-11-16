@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help | Boolean Retrieval</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+  <style>
+    * {
+      font-family: Inter;
+    }
+
+    code {
+      font-family: 'DM Mono';
+      color: #d63384;
+      line-height: 140%;
+      font-size: 1rem;
+      padding: 2px 6px;
+      border: none;
+      border-radius: 4px;
+      background-color: rgb(253, 237, 217);
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="min-height: 100vh;">
+    <div class="container my-5" style="width: 60%;">
+      <h1>Help for queries</h1>
+      <hr>
+      <p>The queries are white-space agnostic</p>
+      <section class="mt-5">
+        <h2>Basic Operators</h2>
+        <p>These operators are simple ones and only use the inverted-index for evaluation.</p>
+        <div class="mt-3">
+          <article class="mt-4">
+            <h4>Parenthesis <code class="ms-2">()</code></h4>
+            <p>
+              - It is a <strong>grouping operator</strong>.
+              <br>
+              - Make sure to open with a ( and close with a ).
+            </p>
+            <span>Example:</span>
+            <code class="ms-2">(late | early)</code>
+          </article>
+          <article class="mt-4">
+            <h4>And <code class="ms-2">&</code></h4>
+            <p>
+              - It is a <strong>binary operator</strong>.
+              <br>
+              - Make sure to have sub-expressions on both sides of the operator.
+            </p>
+            <span>Example:</span>
+            <code class="ms-2">late & early</code>
+          </article>
+          <article class="mt-4">
+            <h4>Or <code class="ms-2">|</code></h4>
+            <p>
+              - It is a <strong>binary operator</strong>.
+              <br>
+              - Make sure to have sub-expressions on both sides of the operator.
+            </p>
+            <span>Example:</span>
+            <code class="ms-2">late | early</code>
+          </article>
+          <article class="mt-4">
+            <h4>Not <code class="ms-2">!</code></h4>
+            <p>
+              - It is a <strong>unary operator</strong>.
+              <br>
+              - Make sure to have sub-expressions on right side of the operator.
+            </p>
+            <span>Examples:</span>
+            <code class="ms-2">! early</code>
+            <code class="ms-2">!(late & early)</code>
+          </article>
+        </div>
+      </section>
+      <section class="mt-5">
+        <h2>Advanced Operators</h2>
+        <p>
+          These operators are an extension and they use the combination of inverted index and positional index or
+          soundex index.
+        </p>
+        <div class="mt-3">
+          <article class="mt-4">
+            <h4>Bi-word <code class="ms-2">""</code></h4>
+            <p>
+              - It is a <strong>grouping operator</strong>.
+              <br>
+              - Make sure to open and close with a ".
+            </p>
+            <span>Example:</span>
+            <code class="ms-2">"stupider person"</code>
+          </article>
+          <article class="mt-4">
+            <h4>Positional <code class="ms-2">/d</code></h4>
+            <p>
+              - It is a <strong>binary operator</strong>.
+              <br>
+              - Make sure to have sub-expressions on both sides of the operator.
+              <br>
+              - The `d` in `/d` is for the distance, it must be an integer
+            </p>
+            <span>Example:</span>
+            <code class="ms-2">late /3 early</code>
+          </article>
+          <article class="mt-4">
+            <h4>Soudnex <code class="ms-2">/s</code></h4>
+            <p>
+              - It is a <strong>unary operator</strong>.
+              <br>
+              - Make sure to have <strong>single word text</strong> on right side of the operator.
+            </p>
+            <span>Examples:</span>
+            <code class="ms-2">/s Elizabeth</code>
+            <code class="ms-2">/sJane</code>
+          </article>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
+  </script>
+</body>
+
+</html>
