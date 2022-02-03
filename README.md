@@ -103,5 +103,3 @@ To look at the query-rules, you can start the server and go to /help endpoint
 ## Contributors
 
 - Siddharth Borderwala [sb943](mailto:sb943@snu.edu.in) - 1910110389
-- Sameer Pashikanti [sp674](mailto:sp674@snu.edu.in) - 1910110339
-- Ramya Karna [rk408](mailto:sb943@snu.edu.in) - 1910110308

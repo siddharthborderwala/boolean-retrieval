@@ -21,17 +21,17 @@ app.use(
 );
 
 // the home page
-app.get('/', (req, res, next) => {
+app.get('/', (req, res) => {
   res.render('home', {});
 });
 
 // help page
-app.get('/help', (req, res, next) => {
+app.get('/help', (req, res) => {
   res.render('help', {});
 });
 
 // post the query to the server
-app.post('/query', (req, res, next) => {
+app.post('/query', (req, res) => {
   const query = req.body.query;
   if (!query || query.trim().length === 0) {
     res.redirect('/');
@@ -55,7 +55,7 @@ app.post('/query', (req, res, next) => {
 });
 
 // returns the doc with the id
-app.get('/doc/:id/:range?', (req, res, next) => {
+app.get('/doc/:id/:range?', (req, res) => {
   const id = req.params.id;
   const range = req.params.range;
   if (range) {
